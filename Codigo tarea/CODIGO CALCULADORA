@@ -1,13 +1,4 @@
-def operacion_adicional(resultado_basicas, operacion2):
-    if operacion2 == 1:
-        return resultado_basicas ** 0.5
-    elif operacion2 == 2:
-        exponente = int(input("El numero de expontes: "))
-        return resultado_basicas ** exponente
-    else:
-        return resultado_basicas
-
-def operaciones_basicas(operacion1, num1, num2):
+def operacion_basicas(num1, num2, operacion1):
     if operacion1 == 1:
         return num1 + num2
     elif operacion1 == 2:
@@ -19,11 +10,21 @@ def operaciones_basicas(operacion1, num1, num2):
     else:
         return None
 
-def calculadora_funcion():
-    num1 = int(input("Dame el primer numero: "))
-    num2 = int(input("Dame el segundo numero: "))
-    operacion1 = int(input("Que quieres hacer? (1.- sumar, 2.- restar, 3.- multiplicar, 4.- dividir): "))
-    operacion2 = int(input("Que operacion adicinal necesta realizar? (1.- raiz, 2.- esponente): "))
-    resultado_basicas = operaciones_basicas(operacion1, num1, num2)
-    print("TU RESULTADO ES DE OPERACIONES BASICAS ES:", resultado_basicas)
-    print("TU RESULTADO DE OPERACIONES ADICIONALES ES:", operacion_adicional(resultado_basicas, operacion2))
+def operacion_adicional(resultado_basicas, operacion2):
+    if operacion2 == 1:
+        return resultado_basicas ** 0.5
+    elif operacion2 == 2:
+        exponente = int(input("El número de exponente: "))
+        return resultado_basicas ** exponente
+    else:
+        return resultado_basicas
+
+num1 = int(input("Dame el primer número: "))
+num2 = int(input("Dame el segundo número: "))
+operacion1 = int(input("¿Qué quieres hacer? (1.- sumar, 2.- restar, 3.- multiplicar, 4.- dividir): "))
+resultado_basicas = operacion_basicas(num1, num2, operacion1)
+
+if resultado_basicas is not None:
+    operacion2 = int(input("¿Qué operación adicional necesitas realizar? (1.- raíz, 2.- exponente): "))
+    resultado_final = operacion_adicional(resultado_basicas, operacion2)
+    print("TU RESULTADO ES DE OPERACIONES BÁSICAS Y ADICIONALES ES:", resultado_final)
