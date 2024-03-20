@@ -1,0 +1,60 @@
+def bono_antiguedad(salario_minimo, años_antiguedad):
+    if años_antiguedad > 25:
+        return 0.50 * (3 * salario_minimo)
+    elif años_antiguedad > 20:
+        return 0.42 * (3 * salario_minimo)
+    elif años_antiguedad > 15:
+        return 0.34 * (3 * salario_minimo)
+    elif años_antiguedad > 11:
+        return 0.26 * (3 * salario_minimo)
+    elif años_antiguedad > 8:
+        return 0.18 * (3 * salario_minimo)
+    elif años_antiguedad > 5:
+        return 0.11 * (3 * salario_minimo)
+    elif años_antiguedad > 2:
+        return 0.05 * (3 * salario_minimo)
+    else:
+        return 0
+
+def salario_dominal(domingos,haber_basico):
+    if domingo > 0:
+        monto = haber_basico*domingos/2*2
+        return monto
+    else:
+        monto = domingos+0
+        return monto
+
+nombre = print("Nombre:")
+numero_carnet = int(print("numero de carnet: "))
+cargo = print("Cargo: ")
+haber_basico = int(print("Haber basico: "))
+mes = print("Mes actual: ")
+tipo_empresa = print("Tipo de empresa: ")
+domingos = int(print("Cuantos domingos trabajo?"))
+año_inicio = int(print("Cual fue su años de inicio?"))
+año_actual = int(print("Año actual?"))
+años_antiguedad = año_actual-año-inicio
+salario_minimo = 2362
+bono_alimentacion = 60
+bono_transporte = 157.5
+vales_consumo = 88
+total_ingresos = haber_basico+bono_alimentacion+bono_transporte+vales_consumo+salario_dominal(domingos,haber_basico)+bono_antiguedad(salario_minimo, años_antiguedad)
+total_afp = total_ingresos*0.1275
+total_egresos = total_afp
+liquido_pagable = total_ingresos-total_egresos
+print ("boleta de pago")
+print ("Nombre:", nombre)
+print ("Numero de C.I:", numero_carnet)
+print ("Cargo: ", cargo)
+print ("Tipo de empresa: ", tipo_empresa)
+print ("haber basico: ", haber_basico)
+print ("Bono alimentacion: ",bono_alimentacion)
+print ("Bono transporte: ", bono_transporte)
+print ("Vales de consumo: ", vales_consumo)
+print ("salario dominical: ",salario_dominal(domingos,haber_basico))
+print ("Total ingresos: ", total_ingresos)
+print ("Bono antiguedad : ",bono_antiguedad(salario_minimo, años_antiguedad))
+print ("años antiguedad: ",años_antiguedad)
+print ("Total AFP:",total_afp)
+print ("total egresos: ",total_egresos)
+print ("liquido pagable: ", liquido_pagable)
