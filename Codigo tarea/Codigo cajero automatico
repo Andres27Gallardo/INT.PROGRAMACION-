@@ -1,0 +1,45 @@
+def verificacion_pin(pin):
+    if 1000 <= pin <= 9999:
+        return "Tu PIN es válido."
+    else:
+        return "Tu PIN es incorrecto."
+
+def verificacion_tarjeta (numero_tarjeta):
+    if 1 < numero_tarjeta < 99999999:
+        return "Tu tarjeta es valida"
+    else:
+        return "tu tarjeta no esta en nuestra base de datos"
+    
+    
+def operacion_realizar (numero_operacion,saldo):
+    if numero_operacion == 1:
+        return print("Tu saldo es de:", saldo)
+    elif numero_operacion == 2:
+        extracto = int(input("Cuánto deseas retirar? "))
+        if extracto > saldo:
+            print("Saldo insuficiente.")
+        else:
+            saldo -= extracto
+            print("Tu saldo actual es de:", saldo)
+        return saldo
+    elif numero_operacion == 3:
+        deposito = int(input("Cuánto deseas depositar? "))
+        saldo += deposito
+        print("Tu saldo actual es de:", saldo)
+        return saldo
+    else:
+        print("No se reconoce la operación.")
+        return None
+        
+        
+saldo=10000
+
+pin = int(input("Escribe tu PIN: "))
+print(verificacion_pin(pin))
+
+numero_tarjeta = int(input("escribe tu numero de tarjeta:"))
+print(verificacion_tarjeta(numero_tarjeta))
+
+input("¿Que operacion realizaras?")
+numero_operacion = int(input("1.Ver saldo, 2. Extracto, 3. Deposito, 4. Ninguna de las anteriores :  "))
+resultado = operacion_realizar(numero_operacion,saldo)
